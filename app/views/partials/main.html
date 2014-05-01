@@ -1,0 +1,33 @@
+<aaf-header></aaf-header>
+
+<div class="well">
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-2">
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="query" placeholder="search" ng-keyup="checkEnter($event)">
+                <span class="input-group-btn" ng-click="doSearch()">
+                <button class="btn btn-default" type="button" ng-click="doSearch()">
+                    <span class="glyphicon glyphicon-search"></span> Seach
+                </button>
+              </span>
+            </div>
+        </div>
+        <a class="btn btn-danger col-xs-2" href="/trending"><span class="glyphicon glyphicon-fire"></span> Trending</a>
+    </div>
+</div>
+
+<h4  ng-if="searchData" class="panel-heading">Search Results for: {{query}}</h4>
+<div class="panel panel-default" ng-if="searchData">
+    <div class="panel-heading">
+        <pagination total-items="paging.totalItems" items-per-page="paging.limit" boundary-links="true" rotate="false" page="paging.currentPage" max-size="paging.maxSize"></pagination>
+    </div>
+
+    <aaf-app-container></aaf-app-container>
+
+    <div class="panel-footer">
+        <pagination total-items="paging.totalItems" items-per-page="paging.limit" boundary-links="true" rotate="false" page="paging.currentPage" max-size="paging.maxSize"></pagination>
+    </div>
+</div>
+
+
+<aaf-footer></aaf-footer>

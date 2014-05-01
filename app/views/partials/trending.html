@@ -1,0 +1,47 @@
+<aaf-header></aaf-header>
+<div class="well">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-6 col-xs-offset-3">
+                <div class="col-xs-5">
+                    <button class="btn btn-default dropdown-toggle">{{list.display}} <span class="glyphicon glyphicon-chevron-down"></span></button>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="text-muted" ng-click="list.display = 'Choose List'; List.val = null ">Choose List</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li ng-repeat="(key, val) in top.list">
+                            <a ng-click="list.display = key; list.val = val ">{{key}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-5">
+                    <button class="btn btn-default dropdown-toggle">{{category.display}} <span class="glyphicon glyphicon-chevron-down"></span></button>
+
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a class="text-muted" ng-click="category.display = 'Choose Category'; category.val = null ">Choose Category</a>
+                        </li>
+                        <li role="presentation" class="divider"></li>
+                        <li ng-repeat="(key, val) in top.category">
+                            <a ng-click="category.display = val; category.val = key ">{{val}}</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-xs-2">
+                    <button class="btn btn-success" ng-click="getTop()">GO!</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4 ng-if="topData" class="panel-heading">Search Results for: {{query}}</h4>
+<div class="panel panel-default" ng-if="searchData">
+    <aaf-app-container></aaf-app-container>
+</div>
+<aaf-footer></aaf-footer>

@@ -30,14 +30,22 @@ body {
 /* Custom page header */
 .header {
     border-bottom: 1px solid #e5e5e5;
-}
 
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-    margin-top: 0;
-    margin-bottom: 0;
+  h3 {
+    margin: 0px 5px;
     line-height: 40px;
     padding-bottom: 19px;
+  }
+
+  .nav{
+    padding-top: 10px;
+  }
+
+  .subtext{
+    margin-top: -25px;
+    padding-left: 21px;
+  }
+
 }
 
 /* Custom page footer */
@@ -47,49 +55,133 @@ body {
     border-top: 1px solid #e5e5e5;
 }
 
-.container-narrow > hr {
-    margin: 30px 0;
+/*Custom Container*/
+.appContainer{
+  width: 220px;
+  border-radius: 4px;
+  margin: 5px 5px;
+  padding: 5px;
+  float: left;
+  height: 100px;
+  cursor: pointer;
+
+  h3{
+    font-size: 14px;
+  }
+
+  div{
+    text-overflow: ellipsis;
+  }
+
+  .media-body{
+    height: 80px;
+  }
+  .media-heading{
+    height: 30px;
+    overflow: hidden;
+  }
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
+.appContainer:hover{
+  background-color: whitesmoke;
 }
 
-.jumbotron .btn {
-    font-size: 21px;
-    padding: 14px 24px;
+.appContainer.ng-enter, .appContainer.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  overflow: hidden;
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
+.appContainer.ng-enter,
+.appContainer.ng-leave.ng-leave-active {
+  width: 0px;
+  opacity: 0;
+}
+.appContainer.ng-leave,
+.appContainer.ng-enter.ng-enter-active {
+  width: 220px;
+  opacity: 1;
 }
 
-.marketing p + h4 {
-    margin-top: 28px;
+.expandedView{
+  width: 100%;
+  border-radius: 4px;
+  margin: 5px 5px;
+  padding: 15px;
+  float: left;
+  background-color: whitesmoke;
+
+  .title{
+    font-size: 30px;
+    color: #000;
+    font-weight: bold;
+  }
+
+  p{
+    padding: 15px;
+  }
+}
+
+.expandedView.ng-enter, .expandedView.ng-leave {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  overflow: hidden;
+}
+
+.expandedView.ng-enter,
+.expandedView.ng-leave.ng-leave-active {
+  width: 220px;
+  height: 100px;
+}
+
+.expandedView.ng-leave,
+.expandedView.ng-enter.ng-enter-active {
+  width: 100%;
+  height: 400px;
+}
+
+.infoContainer{
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px;
+  float: left;
+
+  .nestedContainer{
+    padding: 10px;
+  }
+}
+
+/*image containers*/
+.logoSizer{
+  height: 53px;
+  padding-top: 6px;
 }
 
 /* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1190px) {
     .container {
-        max-width: 730px;
+        width: 985px;
     }
 
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
 }
+@media screen and (max-width: 991px) {
+  .container {
+    width: 752px;
+  }
+/* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+/* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+}
+

@@ -1,0 +1,67 @@
+<div class="panel-body container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="appContainer" ng-repeat-start="item in searchData.results" ng-if="selected.item !== $index">
+                <div class="media" ng-click="selected.item = $index">
+                    <div class="pull-left">
+                        <img class="media-object" ng-src="{{item.icon_72}}">
+                        <rating value="item.rating" max="5" readonly="true"></rating>
+                    </div>
+
+                    <div class="media-body">
+                        <h3 class="media-heading">{{item.title}}</h3>
+                        <div><span ng-attr-class="label {{item.price_numeric | priceLabel}}">{{item.price_numeric | price}}</span></div>
+                        <div><span class="label label-default">{{item.cat_int | category}}</span></div>
+                    </div>
+                </div>
+            </div>
+            <div ng-repeat-end ng-if="selected.item == $index" class="expandedView">
+                <div  class="col-xs-6">
+                    <div class="infoContainer">
+                        <div style="height: 305px;">
+                            <carousel interval="3000" no-animate>
+                                <slide ng-repeat="slide in item.screenshots">
+                                    <img ng-src="{{slide}}" style="margin:auto; height: 305px;">
+                                </slide>
+                            </carousel>
+                        </div>
+                        <div class="col-xs-12 nestedContainer">
+                            <div class="col-xs-6">
+                                <a ng-href="{{item.market_url}}" target="blank">
+                                    <img src="images/en_generic_rgb_wo_60.png">
+                                </a>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="text-right">Viedo: <a ng-href="{{item.promo_video}}" target="blank"><span class="glyphicon glyphicon-film"></span></a></div>
+                                <div class="text-right">Website: <a ng-href="{{item.website}}" target="blank">Link</a></div>
+                                <div class="text-right">In app purchases: <span ng-attr-class="glyphicon  {{item.iap | iapIcon}}"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6">
+                    <div class="col-xs-11">
+                        <div class="title text-center">{{item.title}}</div>
+                        <div class="text-center text-muted">{{item.developer}}</div>
+                    </div>
+                    <div class="col-xs-1">
+                        <button type="button" class="close" aria-hidden="true" data-ng-click="selected.item = null">&times;</button>
+                    </div>
+                    <div class="col-xs-12">
+                        <div>
+                            <span class="badge">{{item.rating | number : 1}}</span>
+                            <rating value="item.rating" max="5" readonly="true"></rating>
+                        </div>
+                        <div>
+                            <span ng-attr-class="label {{item.price_numeric | priceLabel}}">{{item.price_numeric | price}}</span>
+                            <span class="label label-default">{{item.cat_int | category}}</span>
+                        </div>
+                        <div class="text-muted">Version: {{item.version}}</span></div>
+                    </div>
+                </div>
+                <p>{{item.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
